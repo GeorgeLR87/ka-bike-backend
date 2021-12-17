@@ -7,6 +7,7 @@ const bikerutaController = require('./../controllers/bikerutaController')
 
 //2. Ruteo (Router)
 router.post('/create', bikerutaController.create)
+router.get('/readall', bikerutaController.readAll)
 
 
 // 3. Exportaciones

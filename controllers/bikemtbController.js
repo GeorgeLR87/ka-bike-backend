@@ -47,3 +47,23 @@ exports.create = async (req, res) => {
         })        
     }
 }
+
+exports.readAll = async (req, res) => {
+    
+    try {
+    
+        const bikesmtb = await Bikemtb.find({})
+
+        res.json({
+            msg: 'Bikesmtb obtenidas con éxito.',
+            data: bikesmtb
+        })
+
+    } catch (error) {
+        
+        res.status(500).json({
+            msg: 'Hubo un error obteniendo los datos',
+            error: error
+        })
+    }
+}
