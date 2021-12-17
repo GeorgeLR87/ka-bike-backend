@@ -67,3 +67,25 @@ exports.readAll = async (req, res) => {
         })
     }
 }
+
+exports.readOne = async (req, res) => {
+    const { id } = req.params
+
+    try {
+
+        const bikeruta = await Bikeruta.findById(id)
+
+        res.json({
+            msg: 'Bikeruta obtenida con éxito.',
+            data: bikeruta
+        })
+        
+    } catch (error) {
+        res.status(500).json({
+            msg: 'Hubo un error obteniendo los datos.',
+            error: error
+        })
+        
+    }
+}
+
