@@ -22,6 +22,7 @@ app.use(express.json())
 
 //3. Rutas
 app.use('/bikesmtb', require('./routes/bikemtb'))
+app.use('/bikesruta', require('./routes/bikeruta'))
 
 
 //4. Server

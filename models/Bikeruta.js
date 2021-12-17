@@ -30,11 +30,11 @@ const bikerutaSchema = mongoose.Schema({
         required: true
     },
     tipofreno:{
-        type: Number,
+        type: String,
         required: true
     },
     transmision:{
-        type: Number,
+        type: String,
         required: true
     },
     material:{
