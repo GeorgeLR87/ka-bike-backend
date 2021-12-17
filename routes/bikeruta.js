@@ -10,6 +10,7 @@ router.post('/create', bikerutaController.create)
 router.get('/readall', bikerutaController.readAll)
 router.get('/readone/:id', bikerutaController.readOne)
 router.put('/edit/:id', bikerutaController.edit)
+router.delete('/delete/:id', bikerutaController.delete)
 
 
 // 3. Exportaciones

@@ -128,3 +128,24 @@ exports.edit = async (req, res) => {
     })
   }
 };
+
+exports.delete = async (req, res) => {
+    const { id } = req.params
+
+    try {
+
+        const deletedBikemtb = await Bikemtb.findByIdAndRemove({_id: id})
+
+        res.json({
+            msg: 'Bikemtb borrada con éxito.',
+            data: deletedBikemtb
+        })
+        
+    } catch (error) {
+        res.status(500).json({
+            msg: "Hubo un error borrando Bikemtb",
+            error:error
+        })
+        
+    }
+}

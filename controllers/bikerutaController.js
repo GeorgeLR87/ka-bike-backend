@@ -137,4 +137,25 @@ exports.edit = async (req, res) => {
           error: error
       })
     }
-  };
+}
+
+exports.delete = async (req, res) => {
+    const { id } = req.params
+
+    try {
+
+        const deletedBikeruta = await Bikeruta.findByIdAndRemove({_id: id})
+
+        res.json({
+            msg: 'Bikeruta borrada con éxito.',
+            data: deletedBikeruta
+        })
+        
+    } catch (error) {
+        res.status(500).json({
+            msg: "Hubo un error borrando Bikeruta",
+            error:error
+        })
+        
+    }
+}
