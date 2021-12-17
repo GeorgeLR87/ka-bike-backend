@@ -89,3 +89,52 @@ exports.readOne = async (req, res) => {
     }
 }
 
+exports.edit = async (req, res) => {
+    const { id } = req.params;
+    const {
+      marca,
+      modelo,
+      year,
+      talla,
+      rodada,
+      color,
+      tipofreno,
+      transmision,
+      material,
+      modalidad,
+      descripcion,
+      precio,
+    } = req.body;
+  
+    try {
+      const updatedBikeruta = await Bikeruta.findByIdAndUpdate(
+          id, 
+          {
+           marca,
+           modelo,
+           year,
+           talla,
+           rodada,
+           color,
+           tipofreno,
+           transmision,
+           material,
+           modalidad,
+           descripcion,
+           precio,
+          },
+          {new: true}
+      )
+      res.json({
+          msg: 'Bikeruta actualizada con éxito.',
+          data: updatedBikeruta
+      })
+  
+    } catch (error) {
+  
+      res.status(500).json({
+          msg: 'hubo un error con la actualización de Bikeruta',
+          error: error
+      })
+    }
+  };
