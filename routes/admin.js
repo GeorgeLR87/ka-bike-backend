@@ -8,6 +8,8 @@ const authorization  = require('./../middleware/authorization')
 
 //2. Router
 router.post('/create', adminController.create)
+router.post('/login', adminController.login)
+
 
 
 //3. Exportación
