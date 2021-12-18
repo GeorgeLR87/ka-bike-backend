@@ -3,7 +3,7 @@
 //1. Importaciones
 const express     = require('express')
 const app         = express()
-//const cors        = require('cors')
+const cors        = require('cors')
 
 require('dotenv').config()
 const connectDB   = require('./config/db')
@@ -14,7 +14,7 @@ const connectDB   = require('./config/db')
 connectDB()
 
 //Habilitar cors (Accesos de ambientes de Desarrollo de Terceros)
-//app.use(cors())
+app.use(cors())
 
 //Todas las peticiones y respuestas se manejan
 app.use(express.json())
@@ -23,6 +23,8 @@ app.use(express.json())
 //3. Rutas
 app.use('/bikesmtb', require('./routes/bikemtb'))
 app.use('/bikesruta', require('./routes/bikeruta'))
+app.use('/users', require('./routes/users'))
+app.use('/admin', require('./routes/admin'))
 
 
 //4. Server
