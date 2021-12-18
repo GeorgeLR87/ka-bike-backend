@@ -132,3 +132,23 @@ exports.login = async (req, res) => {
         
     }
 }
+
+//Verificar Usuario
+exports.verifyToken = async (req, res) => {
+    try {
+        //1. Buscar el Id del usuario (del token abierto) en base de datos
+        const foundUser = await User.findById(req.user.id).select('-password')
+
+        return res.json({
+            msg: 'Datos de usuario encontrados.',
+            data: foundUser
+        })
+
+    } catch (error) {
+        console.log(error)
+        
+        res.status(500).json({
+            msg: 'Hubo un error con el usuario'
+        })
+    }
+}

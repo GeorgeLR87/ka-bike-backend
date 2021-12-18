@@ -9,6 +9,7 @@ const authorization  = require('./../middleware/authorization')
 //2. Router
 router.post('/create', adminController.create)
 router.post('/login', adminController.login)
+router.get('/verifytoken', authorization, adminController.verifyToken)
 
 
 

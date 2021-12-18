@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 
 const decrypt = async (req, res, next) => {
     //Captura el token y lo guarda en una variable
-    const token = req.header('x-auth-toke')
+    const token = req.header('x-auth-token')
 
     //Si no hay token
     if(! token){

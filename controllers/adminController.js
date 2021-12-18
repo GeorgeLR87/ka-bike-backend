@@ -124,3 +124,22 @@ exports.login = async (req, res) => {
         
     }
 }
+
+exports.verifyToken = async (req, res) => {
+    try {
+        //1. Buscar el Id del administrador (del token abierto) en base de datos
+        const foundAdmin = await Admin.findById(req.user.id).select('-password')
+
+        return res.json({
+            msg: 'Datos del Administrador encontrados.',
+            data: foundAdmin
+        })
+
+    } catch (error) {
+        console.log(error)
+        
+        res.status(500).json({
+            msg: 'Hubo un error con el administrador'
+        })
+    }
+}

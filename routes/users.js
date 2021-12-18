@@ -9,6 +9,7 @@ const authorization  = require('./../middleware/authorization')
 //2. Router
 router.post('/create', userController.create)
 router.post('/login', userController.login)
+router.get('/verifytoken', authorization, userController.verifyToken)
 
 
 //3. Exportación
