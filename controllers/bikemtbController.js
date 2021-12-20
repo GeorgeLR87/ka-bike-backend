@@ -15,6 +15,8 @@ exports.create = async (req, res) => {
     modalidad,
     descripcion,
     precio,
+    imagen,
+
   } = req.body;
 
   try {
@@ -31,6 +33,7 @@ exports.create = async (req, res) => {
       modalidad,
       descripcion,
       precio,
+      imagen,
     });
 
     // Devolver una respuesta en un formato Json
@@ -94,6 +97,7 @@ exports.edit = async (req, res) => {
     modalidad,
     descripcion,
     precio,
+    imagen,
   } = req.body;
 
   try {
@@ -112,6 +116,7 @@ exports.edit = async (req, res) => {
          modalidad,
          descripcion,
          precio,
+         imagen,
         },
         {new: true}
     )

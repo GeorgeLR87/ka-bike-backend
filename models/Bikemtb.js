@@ -52,7 +52,12 @@ const bikemtbSchema = mongoose.Schema({
     precio:{
         type: Number,
         required: true
+    },
+    imagen:{
+        type: String,
+        require:true
     }
+
 })
 
 //3.Modelo

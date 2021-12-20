@@ -52,6 +52,10 @@ const bikerutaSchema = mongoose.Schema({
     precio:{
         type: Number,
         required: true
+    },
+    imagen:{
+        type: String,
+        require:true
     }
 })
 
